@@ -5,13 +5,9 @@ using UnityEngine;
 public class backpack : MonoBehaviour {
 
     public GameObject[] inventory = new GameObject[1];
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void AddItem(GameObject item)
+    {
+        //find first open slot in inventory
+    }
 }

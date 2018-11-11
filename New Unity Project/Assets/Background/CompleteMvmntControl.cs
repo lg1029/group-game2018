@@ -11,6 +11,7 @@ public class CompleteMvmntControl : MonoBehaviour {
     public float speed;
 
     private Rigidbody2D rb2d;
+    private Vector2 moveVelocity;
 
 
 	// Use this for initialization
@@ -18,19 +19,18 @@ public class CompleteMvmntControl : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
 
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+     void Update()
+    {
+        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        moveVelocity = moveInput.normalized * speed;
+    }
+         
+   
 
-        float moveHorizontal = Input.GetAxis("Horizontal");
+    // Update is called once per frame
+    void FixedUpdate () {
+        rb2d.MovePosition(rb2d.position + moveVelocity * Time.fixedDeltaTime); 
 
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-
-        rb2d.AddForce(movement * speed);
-
-        //freeze rotation
-        rb2d.freezeRotation = true;
+      
 	}
 }
