@@ -8,6 +8,8 @@ public class Pickup : MonoBehaviour
 
     private Inventory inventory;
     public GameObject itemButton;
+    public bool Intrigger;
+    public GameObject the_canvas;
 
     private void Start()
     {
@@ -15,9 +17,10 @@ public class Pickup : MonoBehaviour
          
     }
 
-     void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        if (other.CompareTag("Player"))
+        //print("YOUR IN KID!");
+        if (Input.GetKeyDown(KeyCode.E) && Intrigger)
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
@@ -25,14 +28,40 @@ public class Pickup : MonoBehaviour
                 {
                     // ITEM CAN BE ADDED TO INVENTORY
                     inventory.isFull[i] = true;
-                    Instantiate(itemButton, inventory.slots[i].transform, false);
+                    GameObject item = Instantiate(itemButton, inventory.slots[i].transform, false);
+                    item.transform.SetParent(the_canvas.gameObject.transform);
                     Destroy(gameObject);
-                    Destroy(itemButton);
+
                     break;
                 }
             }
-
         }
     }
 
+    
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.CompareTag("Player"))
+        {
+            print(Intrigger);
+            Intrigger = true;
+        }
+    }
+        
+ void OnTriggerExit2D(Collider2D other)
+{
+
+    if (other.CompareTag("Player"))
+    {
+            print(Intrigger);
+            Intrigger = false;
+    }
 }
+
+}
+
+
+
+

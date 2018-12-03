@@ -6,9 +6,15 @@ public class slots : MonoBehaviour
 {
     public void DropItem()
     {
+        print(transform.gameObject.name);
         foreach (Transform child in transform)
         {
-            GameObject.Destroy(child.gameObject);
+            print(child);
+            if (child.gameObject.tag == "pickup")
+            {
+
+            Destroy(child.gameObject);
+             }
         }
     }
 }
