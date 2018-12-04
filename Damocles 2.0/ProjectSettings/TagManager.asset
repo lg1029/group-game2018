@@ -7,6 +7,11 @@ TagManager:
   - interactable
   - pickup
   - Selector
+  - Red
+  - White
+  - Green
+  - Blue
+  - Point
   layers:
   - Default
   - TransparentFX
