@@ -29,7 +29,7 @@ public class Pickup : MonoBehaviour
                     // ITEM CAN BE ADDED TO INVENTORY
                     inventory.isFull[i] = true;
                     GameObject item = Instantiate(itemButton, inventory.slots[i].transform, false);
-                    item.transform.SetParent(the_canvas.gameObject.transform);
+                    //item.transform.SetParent(the_canvas.gameObject.transform);
                     Destroy(gameObject);
 
                     break;
