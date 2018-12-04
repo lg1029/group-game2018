@@ -4,7 +4,27 @@ using UnityEngine;
 
 public class slots : MonoBehaviour 
 {
-    public void DropItem()
+
+
+    private Inventory inventory;
+    public int clicker;
+
+    private void Start()
+   {
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+    }
+
+    private void Update()
+   {
+        if(transform.childCount <= 0)
+       {
+            inventory.isFull[clicker] = false;
+       }
+    }
+
+
+
+   public void DropItem()
     {
         print(transform.gameObject.name);
         foreach (Transform child in transform)
