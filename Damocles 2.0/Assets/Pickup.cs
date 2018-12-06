@@ -45,7 +45,7 @@ public class Pickup : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            print(Intrigger);
+            //print(Intrigger);
             Intrigger = true;
         }
     }
@@ -55,7 +55,7 @@ public class Pickup : MonoBehaviour
 
     if (other.CompareTag("Player"))
     {
-            print(Intrigger);
+            //print(Intrigger);
             Intrigger = false;
     }
 }

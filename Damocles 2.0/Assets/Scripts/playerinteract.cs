@@ -26,7 +26,7 @@ public class playerinteract : MonoBehaviour
     {
 
         if (other.CompareTag("interactable")){
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             currentInterObj = other.gameObject;
 
 
